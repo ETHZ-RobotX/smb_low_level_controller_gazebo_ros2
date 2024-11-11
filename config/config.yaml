@@ -1,0 +1,2 @@
+left_wheel_joint_name: 'left_wheel_joint'
+right_wheel_joint_name: 'right_wheel_joint'
