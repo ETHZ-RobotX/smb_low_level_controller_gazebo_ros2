@@ -53,7 +53,7 @@ public:
         RF_joint_velocity_pub_ = this->create_publisher<std_msgs::msg::Float64>("/RF_WHEEL_JOINT_velocity_cmd", 10);
         LF_joint_velocity_pub_ = this->create_publisher<std_msgs::msg::Float64>("/LF_WHEEL_JOINT_velocity_cmd", 10);
 
-        odom_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("/state_estimation", 10);
+        // odom_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("/dlio/odom_node/odom", 10);
 
         // odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>("state_estimation", 10, std::bind(&DifferentialDriveController::odomCallback, this, std::placeholders::_1));
         // Initialize Gazebo transport node
