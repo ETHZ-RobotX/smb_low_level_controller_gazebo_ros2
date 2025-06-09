@@ -71,12 +71,12 @@ private:
 
     void wheelVelocityCallback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
     {
-        if (msg->data.size() == 2)
+        if (msg->data.size() == 3)
         {
-            double LH_vel = msg->data[0];
-            double RH_vel = msg->data[1];
-            double RF_vel = msg->data[1];
-            double LF_vel = msg->data[0];
+            double LH_vel = msg->data[1];
+            double RH_vel = msg->data[2];
+            double RF_vel = msg->data[2];
+            double LF_vel = msg->data[1];
             publishWheelVelocities(LH_vel, RH_vel, RF_vel, LF_vel);
         }
         else
