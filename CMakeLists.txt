@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(smb_low_level_controller_gazebo_ros2)
+project(smb_low_level_controller_gazebo)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -28,13 +28,13 @@ find_package(pcl_ros REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(smb_low_level_controller_gazebo_ros2_node src/smb_low_level_controller_gazebo_ros2_node.cpp)
-target_include_directories(smb_low_level_controller_gazebo_ros2_node PUBLIC
+add_executable(smb_low_level_controller_gazebo_node src/smb_low_level_controller_gazebo_node.cpp)
+target_include_directories(smb_low_level_controller_gazebo_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(smb_low_level_controller_gazebo_ros2_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(smb_low_level_controller_gazebo_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
-ament_target_dependencies(smb_low_level_controller_gazebo_ros2_node
+ament_target_dependencies(smb_low_level_controller_gazebo_node
   rclcpp
   geometry_msgs
   std_msgs
@@ -45,9 +45,9 @@ ament_target_dependencies(smb_low_level_controller_gazebo_ros2_node
   pcl_conversions
 )
 
-target_link_libraries(smb_low_level_controller_gazebo_ros2_node ${GZ-MSGS_LIBRARIES} ${GZ-TRANSPORT_LIBRARIES})
+target_link_libraries(smb_low_level_controller_gazebo_node ${GZ-MSGS_LIBRARIES} ${GZ-TRANSPORT_LIBRARIES})
 
-install(TARGETS smb_low_level_controller_gazebo_ros2_node
+install(TARGETS smb_low_level_controller_gazebo_node
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
